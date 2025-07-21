@@ -1,0 +1,24 @@
+The script jt4_log.sh checks which have been installed. Missing modules are listed,
+one at a time, with a note of the command line needed to install.
+Rerun jt4_log.sh to check next etc.
+
+The following shell script software modules are required:
+sox 
+libsox-dev
+postgresql
+bc
+pulseaudio
+pavucontrol
+
+The following python modules are required:
+numpy
+sys
+csv
+subprocess
+matplotlib
+scipy
+os
+psycopg2
+psycopg2.extras
+
+

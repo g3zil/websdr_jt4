@@ -1,0 +1,11 @@
+numpy
+sys
+csv
+subprocess
+matplotlib
+scipy
+os
+psycopg2
+psycopg2.extras
+
+
