@@ -6,6 +6,7 @@ The following shell script software modules are required:
 sox 
 libsox-dev
 postgresql
+libpq-dev
 bc
 pulseaudio
 pavucontrol
