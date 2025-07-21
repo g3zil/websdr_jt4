@@ -21,7 +21,7 @@ Any missing modules are loaded one by one when you first run the script jt4_log.
 The python modules requirements are listed in the python_requirements.txt file.
 These can be installed with:
 ```
-python -m pip install -r requirements.txt
+python -m pip install -r python_requirements.txt
 ```
 
 ## Instructions for setting up and operation
