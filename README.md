@@ -15,12 +15,20 @@ git pull
 ```
 
 ### Requirements
-The shell scrip requirements are listed in the bash_requirements.txt file.
+The shell script requirements are listed in the bash_requirements.txt file.
 Any missing modules are loaded one by one when you first run the script jt4_log.sh
 
+#### Open environments
 The python modules requirements are listed in the python_requirements.txt file.
 These can be installed with:
 ```
+python3 -m pip install -r python_requirements.txt
+```
+#### Externally managed environment
+```
+python3 -m venv .venv
+source .venv/bin/activate
+python3 -m pip install --upgrade pip
 python3 -m pip install -r python_requirements.txt
 ```
 
