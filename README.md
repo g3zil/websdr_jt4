@@ -15,7 +15,14 @@ git pull
 ```
 
 ### Requirements
-These are listed in the requirements.txt file.
+The shell scrip requirements are listed in the bash_requirements.txt file.
+Any missing modules are loaded one by one when you first run the script jt4_log.sh
+
+The python modules requirements are listed in the python_requirements.txt file.
+These can be installed with:
+```
+python -m pip install -r requirements.txt
+```
 
 ## Instructions for setting up and operation
 Full details are in the jt4_log_readme.txt file.
