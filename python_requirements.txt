@@ -1,11 +1,6 @@
 numpy<2
-sys
-csv
-subprocess
-matplotlib~=3.10.0
-scipy
-os
-psycopg2
-psycopg2.extras
-
+csv~=1.0
+matplotlib~=3.6.3
+scipy~=1.11.4
+psycopg2~=2.9.9
 
