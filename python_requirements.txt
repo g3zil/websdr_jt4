@@ -1,8 +1,8 @@
-numpy
+numpy<2
 sys
 csv
 subprocess
-matplotlib
+matplotlib~=3.10.0
 scipy
 os
 psycopg2
