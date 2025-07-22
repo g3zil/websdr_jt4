@@ -16,7 +16,7 @@ git pull
 
 ### Requirements
 The shell script requirements are listed in the bash_requirements.txt file.
-Any missing modules are loaded one by one when you first run the script jt4_log.sh
+Any missing modules are loaded one by one when you first run the script setup.sh
 
 #### Open environments
 The python modules requirements are listed in the python_requirements.txt file.
@@ -34,6 +34,7 @@ python3 -m pip install -r python_requirements.txt
 
 ## Instructions for setting up and operation
 Full details are in the jt4_log_readme.txt file.
+Suggest you have that file open in a window as you set up in another.
 
 ## Architecture of the application: Shell script and python scripts
 The diagram below outlines the data flow from a web browser connected to a websdr, through WSJT-X (prferably WSJT-X Improved), to the scripts comprising this websdr_jt4 application. The database is hosted by the WsprDaemon group and access to the Grafana visulaization tool is available on request.
