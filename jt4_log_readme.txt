@@ -2,7 +2,6 @@
    
 A prototype package for 24/7 monitoring and logging of jt4 signals at the Kent 24 GHz WebSDR
 
-
 Gwyn Griffiths G3ZIL   gxgriffiths@virginmedia.com
 with Dr John Worsnop G4BAO
 
@@ -27,10 +26,11 @@ Version 1.2 July 2025         adapted to also run under Ubuntu 24.04, and variou
            keep to same setting e.g. -33 dB and watch out if keyboard volume control affects the level
 	d) On the Save pulldown of WSJT-X select Save all for the wav files.
 	   jt4_log will keep the number of wav files to the latest 10.
-	e) GitHub instructions here ...
+	e) Go to your home directory cd ~ then clone the Github repository:
+           git clone https://github.com/g3zil/websdr_jt4.git
 	   check that directory websdr_jt4 has been created in your home directory and the contents are as below:
 	   (times may be different)
- 	   ls -l ~/jt4
+ 	   ls -l ~/websdr_jt4   UPDATE!
 		total 64
 		-rw-r--r-- 1 gwyn gwyn  4736 Jul 20 15:12 azi_calc.py
 		-rw-r--r-- 1 gwyn gwyn 10231 Jul 20 15:12 jt4_detect.py
@@ -44,21 +44,25 @@ Version 1.2 July 2025         adapted to also run under Ubuntu 24.04, and variou
 		-rwx------ 1 gwyn gwyn  2307 Jul 20 15:12 sn_upload.py
 
 2. Preparing for use jt4_log.sh	
-	a) Change directory using cd ~/websdr_jt4 and use an editor of your choice open jt4_log.sh
-	b) Recalling that this prototype is for a single beacon at a time its details are setup in script jt4_log.sh
-	c) Edit the RX_GRID and RX_ID fields under the set up receiver comment
-	   suggestion is to use TRIG01/yourcallsign to show who is using it
-	d) Exit editor, saving the jt4_log.sh file
-	e) Required step on first use and on change of beacon being monitored.
-	   This script is run to set up basic metadata. Recalling this pilot/prototype is one beacon at a time
-	   we need to know the beacon callsign as the first observation might be a CW minute for GB3PKT
-	   or we may have to wait a long time for a JT4 decode from a continental beacon. So, cd ~/websdr_jt4 to be sure, then:
+	a) Change directory using cd ~/websdr_jt4 and use an editor of your choice open setup.sh
+	b) Recalling that this prototype is for a single beacon at a time its details are setup in script setup.sh
+	c) Edit the RX_GRID (if required, it is set for the Margate webSDR) and RX_ID fields
+           under the set up receiver comment suggestion is to use TRIG01/yourcallsign to show who is using it
+	d) Exit editor, saving the setup.sh file
+        e) Run the script, which will load command line bash requirements.
+	f) Required step on first use and on change of beacon being monitored.
+	   Script new_beacon.sh is run to set up basic metadata.
+           Recalling this pilot/prototype is one beacon at a time we need to know the beacon callsign
+           as the first observation might be a CW minute e.g. for GB3PKT
+	   or we may have to wait a long time for a JT4 decode from a continental beacon.
+           So, cd ~/websdr_jt4 to be sure, then:
 	   ./new_beacon.sh GB3PKT JO01MT TRIG01/G3ZIL
            replace GB3PKT and its grid by another beacon/grid if that is what is needed and G3ZIL by your call
 
 3. Preparing for use WSJT-X and the WebSDR browser 
-	a) Tests have shown that, over time (ten+ hours) noise and spurs are introduced (somehow) into the virtual
-	   audio chain. It presence and growth is minimised if the default sample rate in pulseaudio is changed from 44.1 ksps
+	a) On a Raspberry Pi tests have shown that, over time (ten+ hours) noise and spurs
+           are introduced (somehow) into the virtual audio chain. It presence and growth is
+           minimised if the default sample rate in pulseaudio is changed from 44.1 ksps
 	   to 48 ksps, which is the preferred WSJT-X sample rate. This change is made by:
 	     sudo su
 	     nano /etc/pulse/daemon.conf
@@ -67,19 +71,22 @@ Version 1.2 July 2025         adapted to also run under Ubuntu 24.04, and variou
 	   remove the semi colon to uncomment and make active
 	   remove the semicolon from next line for the default sampling rate, and add comment, so you would have:
 	     default-sample-rate = 48000     # changed from 44100 G3ZIL at *** UTC on *** 2024
-	   This is a useful but insufficient remedy for the noise and spur growth. An effective additional step is described in section 6.
+	   This is a useful but insufficient remedy for the noise and spur growth.
+           An effective additional step is described in section 6.
 	   Now Reboot the computer for the change to take effect. On restart, open web browser.
 	b) With the web browser at trig01.ddns.net:8073 set its frequency to 24.0489442 GHz, mode USB
 	c) In WSJT-X set mode JT4 and submode G, set RX as 650 Hz and F Tol as 200 Hz
 	d) If not already done, in File->Settings->Frequencies tab add 24048.9442 MHz as a JT4 mode
 	   This is 800 Hz below the 24048.945 MHz frequency of the GB3PKT beacon, useful for testing.
-	e) In WSJT-X menu File->Settings->Audio set the save directory to /home/pi/jt4/save NB Change pi to your userid if Ubuntu etc
+	e) In WSJT-X menu File->Settings->Audio set the save directory to
+           /home/pi/jt4/save NB Change pi to your userid if Ubuntu etc
 	   You may need to recheck this setting if WSJT-X crashes, it is kept after a normal close.
 	f) Start monitoring with frequency 24048.9442 MHz (band 1.25 cm), examine the WSJT-X waterfall display.
 	   Odd minutes should show a single frequency peak at ~800 Hz, the carrier plus CW minute.
 	   The even minute is the JT4G transmission.
 	   There should be four peaks, at ~650, 965, 1280, 1595 Hz. They will be weaker, and likely unequal strength.
-	g) If the JT4G peaks look distinct, there should be a decode in the window, if not, there will be a meaningless line.
+	g) If the JT4G peaks look distinct, there should be a decode in the window, if not,
+           there will be a meaningless line.
 
 4. Test jt4_log.sh in manual mode
 	a) Change directory using cd ~/websdr_jt4 
@@ -88,10 +95,7 @@ Version 1.2 July 2025         adapted to also run under Ubuntu 24.04, and variou
            if so, start the script in manual mode:
 	   ./jt4_log.sh
            if not, check correct save directory file name in wsjtx and Save All has been selected.
-	b) It will check if you are missing Linux and python software modules that are needed. It checks one at a time.
-	   If missing, it tells you the command line you need to use to download the missing module.
-	c) You may need to go through this step a few times for different modules.
-	d) When all are present, and the script runs (hopefully properly!) it will output either:
+	b) If the script runs (hopefully properly!) it will output either:
 
            For an odd minute where it has measured the CW carrier signal level and the noise level
 
@@ -131,9 +135,11 @@ Version 1.2 July 2025         adapted to also run under Ubuntu 24.04, and variou
 	   done
 	   Decode data and added variables written to spots_azi.csv file
 
-	   Best check in both even and odd minutes. In every case it tidies up the wav file directory, keeping only the last 10.
-	e) If anything other than the responses above appear please contact gwyn at gxgriffiths@virginmedia.com
-	f) But if all is well, in your browser go to the WebSDR_jt4 Grafana dashboard (userid: wdread password: JTWSPR2008)
+	   Best check in both even and odd minutes.
+           In every case it tidies up the wav file directory, keeping only the last 10.
+	c) If anything other than the responses above appear please contact gwyn at gxgriffiths@virginmedia.com
+	d) But if all is well, in your browser go to the WebSDR_jt4 Grafana dashboard
+           (userid: wdread password: JTWSPR2008)
 	   at:
 	   http://logs1.wsprdaemon.org:3000/d/qO0MwaZHz/websdr_jt4?orgId=1&from=now-3h&to=now-1m&var-band_cm=1.25&var-receiver=TRIG01%2FG3ZIL&var-beacon=GB3PKT
 
@@ -170,7 +176,7 @@ Version 1.2 July 2025         adapted to also run under Ubuntu 24.04, and variou
 	c) After a little time, check the Grafana dashboard using step 4f above.
 
 6. Script to close WSJT-X, restart the pulseaudio service and restart WSJT-X
-	a) This is a work-around to the growth of virtual audio noise and spurs.
+	a) This is a work-around to the growth of virtual audio noise and spurs seen on a Raspberry Pi.
 	   The data deterioration is minimal if this is done every hour. Hence the pa_restart.sh script is run using cron.
 	b) Set up using the command:
 
