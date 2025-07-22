@@ -49,7 +49,12 @@ Version 1.2 July 2025         adapted to also run under Ubuntu 24.04, and variou
            -rwxrwxr-x 1 gwyn gwyn  2307 Jul 22 11:27 sn_upload.py
 
 2. Preparing for use jt4_log.sh	
-	a) Required step on first use and on change of beacon being monitored.
+	a) Change directory using cd ~/jt4 and use an editor of your choice open jt4_log.sh
+	b) Recall  this prototype is for a single beacon, its details are setup in script jt4_log.sh
+	c) Edit the RX_GRID and RX_ID fields under the set up receiver comment
+	   suggestion is to use TRIG01/yourcallsign to show who is using it
+	d) Exit editor, saving the jt4_log.sh file
+        b) Required step on first use and on change of beacon being monitored.
 	   Script new_beacon.sh is run to set up basic metadata.
            Recalling this pilot/prototype is one beacon at a time we need to know the beacon callsign
            as the first observation might be a CW minute e.g. for GB3PKT
