@@ -16,7 +16,10 @@ git pull
 
 ### Requirements
 The shell script requirements are listed in the bash_requirements.txt file.
-Any missing modules are loaded one by one when you first run the script setup.sh
+Any missing modules are loaded one by one when you first run the script setup.sh:
+```
+sudo ./setup.sh
+```
 
 #### Open environments
 The python modules requirements are listed in the python_requirements.txt file.
