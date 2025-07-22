@@ -24,6 +24,7 @@ Version 1.2 July 2025         adapted to also run under Ubuntu 24.04, and variou
         c) A virtual cable (e.g. pulseaudio) to connect the browser audio to WSJT-X
            and pavucontrol to set audio level to WSJT-X. Affects signal level (not SNR)
            keep to same setting and watch out if keyboard volume control affects the level
+           On the WSJT-X Settings->Audio page select pulse as the input source, or to suit if you use another option.
 	d) On the Save pulldown of WSJT-X select Save all for the wav files.
 	   jt4_log will keep the number of wav files to the latest 10.
 	e) Here it is assumed you cloned the Github repository and run the setup and python scripts.
