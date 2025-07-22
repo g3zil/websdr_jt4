@@ -30,18 +30,22 @@ Version 1.2 July 2025         adapted to also run under Ubuntu 24.04, and variou
            git clone https://github.com/g3zil/websdr_jt4.git
 	   check that directory websdr_jt4 has been created in your home directory and the contents are as below:
 	   (times may be different)
- 	   ls -l ~/websdr_jt4   UPDATE!
-		total 64
-		-rw-r--r-- 1 gwyn gwyn  4736 Jul 20 15:12 azi_calc.py
-		-rw-r--r-- 1 gwyn gwyn 10231 Jul 20 15:12 jt4_detect.py
-		-rw-r--r-- 1 gwyn gwyn 10449 Jul 20 15:12 jt4_log_readme.txt
-		-rwxr-xr-x 1 gwyn gwyn  6302 Jul 20 15:12 jt4_log.sh
-		-rwx------ 1 gwyn gwyn  2490 Jul 20 15:12 jt4_upload.py
-		-rwxr-xr-x 1 gwyn gwyn   574 Jul 20 15:12 new_beacon.sh
-		-rwxr-xr-x 1 gwyn gwyn  1120 Jul 20 15:12 pa_restart.sh
-		drwxr-xr-x 2 gwyn gwyn  4096 Jul 20 15:12 save
-		-rwxr-xr-x 1 gwyn gwyn  2364 Jul 20 15:12 sn_calc.sh
-		-rwx------ 1 gwyn gwyn  2307 Jul 20 15:12 sn_upload.py
+           (.venv) gwyn@HPI5:~/websdr_jt4$ ls -l
+           total 80
+           -rw-rw-r-- 1 gwyn gwyn  4736 Jul 22 11:27 azi_calc.py
+           -rw-rw-r-- 1 gwyn gwyn   309 Jul 22 11:27 bash_requirements.txt
+           -rw-rw-r-- 1 gwyn gwyn 10231 Jul 22 11:27 jt4_detect.py
+           -rw-rw-r-- 1 gwyn gwyn 10624 Jul 22 11:27 jt4_log_readme.txt
+           -rwxrwxr-x 1 gwyn gwyn  4632 Jul 22 11:27 jt4_log.sh
+           -rwxrwxr-x 1 gwyn gwyn  2490 Jul 22 11:27 jt4_upload.py
+           -rwxrwxr-x 1 gwyn gwyn   574 Jul 22 11:27 new_beacon.sh
+           -rwxrwxr-x 1 gwyn gwyn  1120 Jul 22 11:27 pa_restart.sh
+           -rw-rw-r-- 1 gwyn gwyn    57 Jul 22 11:27 python_requirements.txt
+           -rw-rw-r-- 1 gwyn gwyn  1601 Jul 22 11:27 README.md
+           drwxrwxr-x 2 gwyn gwyn  4096 Jul 22 11:27 save
+           -rwxrwxr-x 1 gwyn gwyn  1210 Jul 22 11:27 setup.sh
+           -rwxrwxr-x 1 gwyn gwyn  2364 Jul 22 11:27 sn_calc.sh
+           -rwxrwxr-x 1 gwyn gwyn  2307 Jul 22 11:27 sn_upload.py
 
 2. Preparing for use jt4_log.sh	
 	a) Change directory using cd ~/websdr_jt4 and use an editor of your choice open setup.sh
