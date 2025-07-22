@@ -16,7 +16,14 @@ git pull
 
 ### Requirements
 The shell script requirements are listed in the bash_requirements.txt file.
-Any missing modules are loaded one by one when you first run the script setup.sh:
+Any missing modules are loaded one by one when you first run the script setup.sh.
+But first:
+a) Change directory using cd ~/websdr_jt4 and use an editor of your choice open setup.sh
+b) Recall this prototype is for a single beacon, its details are setup in script setup.sh
+c) Edit the RX_GRID (if required, it is set for the Margate webSDR) and RX_ID fields
+   under the set up receiver comment suggestion is to use TRIG01/yourcallsign to show who is using it
+d) Exit editor, saving the setup.sh file
+e) Run the script using sudo, which may need your password. This will load command line bash requirements.
 ```
 sudo ./setup.sh
 ```
