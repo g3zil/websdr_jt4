@@ -23,13 +23,13 @@ Version 1.2 July 2025         adapted to also run under Ubuntu 24.04, and variou
            sudo dpkg -i wsjtx_2.8.0_improved_PLUS_250501_amd64.deb
         c) A virtual cable (e.g. pulseaudio) to connect the browser audio to WSJT-X
            and pavucontrol to set audio level to WSJT-X. Affects signal level (not SNR)
-           keep to same setting e.g. -33 dB and watch out if keyboard volume control affects the level
+           keep to same setting and watch out if keyboard volume control affects the level
 	d) On the Save pulldown of WSJT-X select Save all for the wav files.
 	   jt4_log will keep the number of wav files to the latest 10.
-	e) Go to your home directory cd ~ then clone the Github repository:
-           git clone https://github.com/g3zil/websdr_jt4.git
-	   check that directory websdr_jt4 has been created in your home directory and the contents are as below:
-	   (times may be different)
+	e) Here it is assumed you cloned the Github repository and run the setup and python scripts.
+           Go to your home directory cd ~
+           check that directory websdr_jt4 has been created in your home directory and contents are as below:
+	   (times will be different)
            (.venv) gwyn@HPI5:~/websdr_jt4$ ls -l
            total 80
            -rw-rw-r-- 1 gwyn gwyn  4736 Jul 22 11:27 azi_calc.py
@@ -48,13 +48,7 @@ Version 1.2 July 2025         adapted to also run under Ubuntu 24.04, and variou
            -rwxrwxr-x 1 gwyn gwyn  2307 Jul 22 11:27 sn_upload.py
 
 2. Preparing for use jt4_log.sh	
-	a) Change directory using cd ~/websdr_jt4 and use an editor of your choice open setup.sh
-	b) Recalling that this prototype is for a single beacon at a time its details are setup in script setup.sh
-	c) Edit the RX_GRID (if required, it is set for the Margate webSDR) and RX_ID fields
-           under the set up receiver comment suggestion is to use TRIG01/yourcallsign to show who is using it
-	d) Exit editor, saving the setup.sh file
-        e) Run the script, which will load command line bash requirements.
-	f) Required step on first use and on change of beacon being monitored.
+	a) Required step on first use and on change of beacon being monitored.
 	   Script new_beacon.sh is run to set up basic metadata.
            Recalling this pilot/prototype is one beacon at a time we need to know the beacon callsign
            as the first observation might be a CW minute e.g. for GB3PKT
