@@ -3,67 +3,6 @@
 ### Enhanced  prototype  with jt4 detector as well as wsjtx jt4  Gwyn G3ZIL Oct 2024 - July 2025
 ### V1.2 for Raspberry Pi and Ubuntu 24.04
 
-########################################################
-# Only user-set installation variables are in this block
-########################################################
-# set up receiver details to go into database table via python
-RX_GRID=JO01qj           #  Maidenhead for Margate WebSDR, not where browser is located!              
-RX_ID=TRIG01/G3ZIL       # The /G3ZIL is a suggested addition, use your callsign to show who is using WebSDR
-########################################################
-
-########################################################
-# check that required dependencies are met, except for browser and WSJT-X assumed available and connected by virtual cable
-SOX=$(which sox)
-WGET=$(which wget)
-PSQL=$(which psql)
-BC=$(which bc)
-PA=$(which pulseaudio)
-PAVU=$(which pavucontrol)
-
-if [[ -z  "${SOX}" ]]
-then
-  echo "Dependency ${SOX} not present please install using: "
-  echo "sudo apt-get install sox libsox-dev"
-  exit 1
-fi
-
-if [[ -z  "${WGET}" ]]
-then
-  echo "Dependency ${WGET} not present please install using: "
-  echo "sudo apt-get install wget"
-  exit 1
-fi
-
-if [[ -z  "${PSQL}" ]]
-then
-  echo "Dependency ${PSQL} not present please install using: "
-  echo "sudo apt install postgresql"
-  exit 1
-fi
-
-if [[ -z  "${BC}" ]]
-then
-  echo "Dependency ${BC} not present please install using: "
-  echo "sudo apt-get install bc"
-  exit 1
-fi
-
-if [[ -z  "${PA}" ]]
-then
-  echo "Dependency ${PA} not present please install using: "
-  echo "sudo apt-get install pulseaudio"
-  exit 1
-fi
-
-if [[ -z  "${PAVU}" ]]
-then
-  echo "Dependency ${PAVU} not present please install using: "
-  echo "sudo apt-get install pavucontrol"
-  exit 1
-fi
-
-echo "Modules OK"
-
 #######################################################
 # set up directory and file where latest decode and non-decode lines will be found
 #
