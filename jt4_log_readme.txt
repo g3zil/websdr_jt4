@@ -77,7 +77,8 @@ Version 1.2 July 2025         adapted to also run under Ubuntu 24.04, and variou
 	d) If not already done, in File->Settings->Frequencies tab add 24048.9442 MHz as a JT4 mode
 	   This is 800 Hz below the 24048.945 MHz frequency of the GB3PKT beacon, useful for testing.
 	e) In WSJT-X menu File->Settings->Audio set the save directory to
-           /home/pi/jt4/save NB Change pi to your userid if Ubuntu etc
+           /home/pi/websdr_jt4/save
+           NB Change pi to your userid if Ubuntu etc
 	   You may need to recheck this setting if WSJT-X crashes, it is kept after a normal close.
 	f) Start monitoring with frequency 24048.9442 MHz (band 1.25 cm), examine the WSJT-X waterfall display.
 	   Odd minutes should show a single frequency peak at ~800 Hz, the carrier plus CW minute.
