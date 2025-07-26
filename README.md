@@ -1,5 +1,5 @@
 ## Installation 
-This experimental software has been tested on Raspberry Pi PiOS and Ubuntu 24.04 LTS Linux systems.
+This experimental software has been tested on Raspberry Pi PiOS Bookworm and Ubuntu 24.04 LTS Linux systems.
 
 ### Download
 You need to clone the package from github.com and run the software in the websdr_jt4 sub-directory. 
