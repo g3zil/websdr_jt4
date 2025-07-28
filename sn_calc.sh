@@ -28,9 +28,9 @@ FFT_NOISE=$(python3 fft_noise.py ${WAV_DIR}/$1)
 /usr/bin/sox ${BASE_DIR}/trimmed.wav ${BASE_DIR}/filtered.wav sinc 700-900             # sinc bandpass filter around nominal carrier, which is 800 Hz July 2025 AirspySDR 
 RMS_SIGNAL=$(/usr/bin/sox ${BASE_DIR}/filtered.wav -n stats 2>&1 | grep 'RMS lev dB' | awk '{print $4}')   # get stats, look for RMS (not peak) and grab value
 
+echo "FFT_NOISE (dB)= ${FFT_NOISE}"
 echo "RMS_NOISE (dB)= ${RMS_NOISE}"
 echo "RMS_SIGNAL (dB)= ${RMS_SIGNAL}"
-echo "RMS_SIGNAL (dB)= ${FFT_NOISE}"
 
 # get metadata from previous jt4 decode using awk add in the current time, rms and fft noise and level measurements and mode and save as csv
 awk -F"," -v OFS="," -v date="${DECODE_CAPTURE_DATE}" -v fft_noise="${FFT_NOISE}" -v rms_noise="${RMS_NOISE}" -v signal="${RMS_SIGNAL}" -v mode="${MODE}" \
