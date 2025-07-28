@@ -1,9 +1,10 @@
 #!/bin/bash
-
 ### This bash script uses the linux sound utility to determine the signal level and the rms noise level during the odd minute carrier from GB3PKT
 ### Basic functional pilot   Gwyn G3ZIL Oct 2024 - July 2025
 ### Single command line argument is wav file name in default path
 ### This version for Raspberry Pi and Ubuntu 24.04
+### V1.0 October 2024
+### V1.1 July 2025 with FFT noise added
 
 # set up directory and file where wav file found and temporary files written and set mode to CW for carrier
 BASE_DIR=$(pwd)
