@@ -3,6 +3,7 @@
 # Version 1.2 May 2020 batch upload from a parsed file. Takes about 1.7s compared with 124s for line by line
 # that has been pre-formatted with an awk line to be in the right order and have single quotes around the time and character fields
 # Version 1.3 Nov 2024 for jt4 24 GHz WebSDR
+# Version 1.3.1 July 2025 with fft_noise upload added
 
 import psycopg2                  # This is the main connection tool, believed to be written in C
 import psycopg2.extras           # This is needed for the batch upload functionality
@@ -21,8 +22,8 @@ batch_file_path=sys.argv[1]
 try:
     with open (batch_file_path) as csv_file:
         csv_data = csv.reader(csv_file, delimiter=',')
-        sql="""INSERT INTO jt4 (time, tx_call, tx_grid, band, rx_id, rx_grid, rx_lat, rx_lon, rms_noise, sig_level, mode)
-        VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s);"""
+        sql="""INSERT INTO jt4 (time, tx_call, tx_grid, band, rx_id, rx_grid, rx_lat, rx_lon, fft_noise, rms_noise, sig_level, mode)
+        VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s);"""
         try:
                # connect to the PostgreSQL database
                #print ("Trying to  connect")
