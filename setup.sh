@@ -1,7 +1,5 @@
 #!/bin/bash
-### This bash script  sets up the receiver metadata of receiver grid JO01qj for Maregate Kent SDR
-#   and cxallsign for reporting as TRIG01/you_call
-### Also installs command line and bash modules 
+### This script installs command line and bash modules 
 ### V1.2 for Raspberry Pi and Ubuntu 24.04
 
 # No need for user to edit lines below
