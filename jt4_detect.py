@@ -88,11 +88,10 @@ print ("Samp rate = ",rate)
 
 # Tone spacing in bins for JT4G at 11025 sps
 f_shift = 72
-baud_rate=4.375   	          # characteristic for JT4 in Hz
+baud_rate=4.375   	              # characteristic for JT4 in Hz
 tone_spacing=baud_rate*f_shift    # we will look for peaks at this spacing
-T0=650                            # Tone zero frequency - there is the nominal for the mode but also any offset
-				  # Due to the imprecise TCXO in the RTL-dongle of the Kent WebSDR. This is a practical figure.
-T0_tol=100			  # A tolerance for T0 to give a window for TCXO stability. May need to change for seasons.
+T0=797.5                          # Tone zero frequency - this is theoretical see http://www.g4jnt.com/JT4G_Tone_freqs.pdf
+T0_tol=100			              # A tolerance of +/- 100 Hz for oscillator offsets possible at 24 GHz
  
 # JT4 sync vector - this is from Daniel Estevez notes, as are the comments below
 sync = 2*np.array(list(map(int,'00011000110110010100000001100000000000010110110101111101000100100111110001010001111011001000110101010101111101010110101011100101101111000011011000111011101110010001101100100011111100110000110001011011110101')), dtype='int8')-1
