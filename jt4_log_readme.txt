@@ -51,10 +51,10 @@ Version 1.2 July 2025         adapted to also run under Ubuntu 24.04, and variou
 2. Preparing for use jt4_log.sh	
 	a) Change directory using cd ~/websdr_jt4 and use an editor of your choice open jt4_log.sh
 	b) Recall  this prototype is for a single beacon, its details are setup in script jt4_log.sh
-	c) Edit the RX_GRID and RX_ID fields under the set up receiver comment
+	c) Copy the jt4_config_template.ini file into jt4_config.ini
+       edit the RX_GRID and RX_ID fields to suit your setup and save,
 	   suggestion is to use TRIG01/yourcallsign to show who is using it
-	d) Exit editor, saving the jt4_log.sh file
-        b) Required step on first use and on change of beacon being monitored.
+    d) Required step on first use and on change of beacon being monitored.
 	   Script new_beacon.sh is run to set up basic metadata.
            Recalling this pilot/prototype is one beacon at a time we need to know the beacon callsign
            as the first observation might be a CW minute e.g. for GB3PKT
