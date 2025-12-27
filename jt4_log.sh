@@ -1,20 +1,15 @@
 #!/bin/bash
 ### This bash script with python parts to parse and upload jt4 data from Margate 24 GHz SDR to a table in tutorial database on WD1
-### Enhanced  prototype  with jt4 detector as well as wsjtx jt4  Gwyn G3ZIL Oct 2024 - July 2025
-### V1.2 for Raspberry Pi and Ubuntu 24.04
-########################################################
-# Only user-set installation variables are in this block
-########################################################
-# set up receiver details to go into database table via python
-RX_GRID=JO01qj           #  Maidenhead for Margate WebSDR, not where browser is located!
-RX_ID=TRIG01/G3ZIL       # The /G3ZIL is a suggested addition, use your callsign to show who is using WebSDR
+### Enhanced  prototype  with jt4 detector as well as wsjtx jt4  Gwyn G3ZIL Oct 2024 - December 2025
+### V1.21 for Raspberry Pi and Ubuntu 24.04 now reading a jt4_config.ini file
 #######################################################
-
-# No need for user to edit lines below
+# No need for user to edit lines below, RX metadata obtained from separate file 
 #######################################################
 # set up directory and file where latest decode and non-decode lines will be found
 #
 BASE_DIR=$(pwd)
+source ${BASE_DIR}/jt4_config.ini    # the config.ini file holds the callsign and grid of the receiver, other metadata got from jt4 decodes
+
 JT4_DATA_FILE="$(echo ${BASE_DIR} | cut -d/ -f-3)/.local/share/WSJT-X/ALL.TXT"   #  This is where wsjtx puts the data
 
 # lines in ALL.TXT may be valid decodes, which have 10 fields, or no decode made, which have 8
