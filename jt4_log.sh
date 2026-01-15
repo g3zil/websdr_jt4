@@ -40,7 +40,7 @@ then
     WAV_FILE=$(ls -ltr ${BASE_DIR}/save| tail -n 1 | awk '{print $9}')              # get the JT4 even minute wav file name to process 
     echo "Detection program processing file "${WAV_FILE}
     sox ${BASE_DIR}/save/${WAV_FILE} -r 11025 ${BASE_DIR}/11025.wav                 # resample to 11025 sps (now this is 1/4 of 44100 sps!)
-    /usr/bin/python3 ${BASE_DIR}/jt4_detect.py ${DECODE_CAPTURE_DATE} ${BASE_DIR}/11025.wav     # do the processing!
+    ~/websdt_jt4/.venv/bin/python3 ${BASE_DIR}/jt4_detect.py ${DECODE_CAPTURE_DATE} ${BASE_DIR}/11025.wav     # do the processing!
   fi
 else
 
