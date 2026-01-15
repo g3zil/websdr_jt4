@@ -138,7 +138,7 @@ plt.title('Sync in frequency (zoom)')
 plt.xlabel('Frequency (Hz)')
 plt.ylabel('Correlation');
 plt.savefig(PLOT_FILE + '.png', dpi=300)
-plt.show()
+#plt.show()
 
 print("Fsync maximum correlation= ", f_zoom[50])
 
