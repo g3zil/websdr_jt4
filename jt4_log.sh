@@ -32,7 +32,7 @@ then
     awk 'FS = " ", OFS="," {print $1,$2,$3,$4,$5,$6,$7,$8,$9,$10}' <${BASE_DIR}/temp.txt >${BASE_DIR}/temp1.csv   # reformat to a csv
     /usr/bin/python3 ${BASE_DIR}/azi_calc.py ${DECODE_CAPTURE_DATE} ${RX_GRID} ${RX_ID}                           # calculate lat/lon/azimuths/distance
     echo "Decode data and added variables written to spots_azi.csv file"
-    /usr/bin/python3  ${BASE_DIR}/jt4_upload.py ${BASE_DIR}/spots_azi.csv                                         # upload to table jt4 database tutorial on wd1 server
+    ~/websdt_jt4/.venv/bin/python3  ${BASE_DIR}/jt4_upload.py ${BASE_DIR}/spots_azi.csv                                         # upload to table jt4 database tutorial on wd1 server
     tail -1 ${JT4_DATA_FILE} > ${BASE_DIR}/previous_upload.txt                                                    # this is one we just uploaded, not to be duped
 
   #  This code runs a JT4 detector,a correlator that should provide a detection, not a decode, at lower SNR - perhaps!
