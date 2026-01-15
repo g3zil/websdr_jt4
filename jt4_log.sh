@@ -32,7 +32,7 @@ then
     awk 'FS = " ", OFS="," {print $1,$2,$3,$4,$5,$6,$7,$8,$9,$10}' <${BASE_DIR}/temp.txt >${BASE_DIR}/temp1.csv   # reformat to a csv
     /usr/bin/python3 ${BASE_DIR}/azi_calc.py ${DECODE_CAPTURE_DATE} ${RX_GRID} ${RX_ID}                           # calculate lat/lon/azimuths/distance
     echo "Decode data and added variables written to spots_azi.csv file"
-    ~/websdt_jt4/.venv/bin/python3  ${BASE_DIR}/jt4_upload.py ${BASE_DIR}/spots_azi.csv                                         # upload to table jt4 database tutorial on wd1 server
+    ~/websdr_jt4/.venv/bin/python3  ${BASE_DIR}/jt4_upload.py ${BASE_DIR}/spots_azi.csv                                         # upload to table jt4 database tutorial on wd1 server
     tail -1 ${JT4_DATA_FILE} > ${BASE_DIR}/previous_upload.txt                                                    # this is one we just uploaded, not to be duped
 
   #  This code runs a JT4 detector,a correlator that should provide a detection, not a decode, at lower SNR - perhaps!
@@ -40,7 +40,7 @@ then
     WAV_FILE=$(ls -ltr ${BASE_DIR}/save| tail -n 1 | awk '{print $9}')              # get the JT4 even minute wav file name to process 
     echo "Detection program processing file "${WAV_FILE}
     sox ${BASE_DIR}/save/${WAV_FILE} -r 11025 ${BASE_DIR}/11025.wav                 # resample to 11025 sps (now this is 1/4 of 44100 sps!)
-    ~/websdt_jt4/.venv/bin/python3 ${BASE_DIR}/jt4_detect.py ${DECODE_CAPTURE_DATE} ${BASE_DIR}/11025.wav     # do the processing!
+    ~/websdr_jt4/.venv/bin/python3 ${BASE_DIR}/jt4_detect.py ${DECODE_CAPTURE_DATE} ${BASE_DIR}/11025.wav     # do the processing!
   fi
 else
 
