@@ -51,6 +51,7 @@ else
   echo "If odd minute then CW file for signal level and noise, else if even a missed JT4 spot interval"
   WAV_FILE=$(ls -ltr ${BASE_DIR}/save| tail -n 1 | awk '{print $9}')
   WAV_FILE_MINUTE=$(ls -ltr ${BASE_DIR}/save| tail -n 1 | awk '{print substr($9, 11,1)}')
+  echo "I have variable WAV_FILE as ${WAV_FILE} and variable WAV_FILE_MINUTE as ${WAV_FILE_MINUTE}"
   if [[ ${WAV_FILE_MINUTE} =~ ^[13579]+$ ]]
      then
        WAV_FILE_TIME=$(ls -ltr ${BASE_DIR}/save| tail -n 1 | awk '{print substr($9, 8,4)}')
